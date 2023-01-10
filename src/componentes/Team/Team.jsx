@@ -1,13 +1,13 @@
 import Card from './Card/Card'
 import style from './Team.module.css'
 
-export default function Team (props) {
-    let optionsTeams = props.optionsTeams
+export default function Team ({optionsTeams, colaboradores, onDelete}) {
     let listIds = Object.keys(optionsTeams)
     let arrayDeIdsExistentes = []
-    props.teams.forEach(element => {
+    colaboradores.forEach(element => {
         arrayDeIdsExistentes.push(element.time)
     })
+    
     return (
         <>
             {
@@ -25,7 +25,7 @@ export default function Team (props) {
                                 >
                                     <h2 className={style.team__title}>{optionsTeams[id].name}</h2>
                                     <div className={style.cardscontainer}>
-                                    <Card teams={props.teams} id={id}/>
+                                    <Card teams={colaboradores} id={id} onDelete={onDelete} />
 
                                     </div>
                                 </section>

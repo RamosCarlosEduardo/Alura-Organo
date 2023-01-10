@@ -50,6 +50,11 @@ function App() {
     7: {name: "Inovação e Gestão", bgcolor: "#FFEEDF", cardcolor: "#FF8A29"}
   }
 
+  function deleteColaborador (nome, event){
+    let newColaboradores = colaboradores.filter(el => el.nome != nome)
+    setColaboradores(newColaboradores)
+  }
+
   return (
     <div className="App">
       <header className="header">
@@ -58,7 +63,7 @@ function App() {
           optionsTeams={optionsTeams}
           onRegister={colaborador => saveColaborador(colaborador)} 
         />
-        <Team teams={colaboradores} optionsTeams={optionsTeams} />
+        <Team colaboradores={colaboradores} optionsTeams={optionsTeams} onDelete={deleteColaborador} />
       </header>
     </div>
   );

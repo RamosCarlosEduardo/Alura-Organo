@@ -1,6 +1,10 @@
 import style from './Card.module.css'
+import React from 'react';
+import { RxCrossCircled } from "react-icons/rx";
+
 
 export default function Card (props){
+
     
     return(
         props.teams.filter(element => element.time === props.id).map(element => {
@@ -13,6 +17,9 @@ export default function Card (props){
                     <div className={style.cargo}>
                         {element.cargo}
                     </div>
+                    
+                    <RxCrossCircled className={style.deletar} onClick={() => props.onDelete(element.nome)} />
+                    
                 </div>
             )
         })
